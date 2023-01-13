@@ -9,7 +9,9 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 // app.use(express.static(`${__dirname}`+`../frontend/public`))
-
+app.get("/health",(req,res)=>{
+res.send('ok');
+});
 app.use('/:dept',checkDepartment);
 app.use('/:dept', routesHandler);
 
